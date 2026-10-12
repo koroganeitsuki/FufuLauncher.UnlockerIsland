@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="源文件">
@@ -18,58 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Utils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Hooks.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Scanner.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imconfig.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imgui.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imgui_impl_dx11.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imgui_impl_win32.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imgui_internal.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imstb_rectpack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imstb_textedit.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImGui\imstb_truetype.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MinHook\MinHook.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SecurityUtils.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="GamepadHotSwitch.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="HookWndProc.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="EncryptedData.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="XorString.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="il2cpp\Il2CppArray.h">
@@ -81,46 +30,132 @@
     <ClInclude Include="il2cpp\Il2CppObject.h">
       <Filter>头文件\il2cpp</Filter>
     </ClInclude>
+    <ClInclude Include="Config\Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Hooks.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\SharedState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Patterns\Patterns.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Automation\Automation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RainbowDamage\RainbowDamage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HideUI\HideUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Network.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UnderwaterMask\UnderwaterMask.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Visual\Visual.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeCamera\FreeCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera\Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraOffset\CameraOffset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PaimonFollow\PaimonFollow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner\Scanner.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpeedHack\SpeedHack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSkip\RenderSkip.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedTimestep\FixedTimestep.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DepenDiag\DepenDiag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="Config\Config.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Config.cpp">
+    <ClCompile Include="Core\dllmain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Hooks.cpp">
+    <ClCompile Include="Core\Hooks.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Scanner.cpp">
+    <ClCompile Include="Scanner\Scanner.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
+    <ClCompile Include="Core\SharedState.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_demo.cpp">
+    <ClCompile Include="Patterns\Patterns.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
+    <ClCompile Include="Automation\Automation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_dx11.cpp">
+    <ClCompile Include="RainbowDamage\RainbowDamage.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_impl_win32.cpp">
+    <ClCompile Include="HideUI\HideUI.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_tables.cpp">
+    <ClCompile Include="Network\Network.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
+    <ClCompile Include="UnderwaterMask\UnderwaterMask.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="GamepadHotSwitch.cpp">
+    <ClCompile Include="Visual\Visual.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="HookWndProc.cpp">
+    <ClCompile Include="FreeCamera\FreeCamera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Camera\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraOffset\CameraOffset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PaimonFollow\PaimonFollow.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SpeedHack\SpeedHack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSkip\RenderSkip.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FixedTimestep\FixedTimestep.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DepenDiag\DepenDiag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

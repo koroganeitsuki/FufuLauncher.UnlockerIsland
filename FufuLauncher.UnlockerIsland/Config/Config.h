@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -102,6 +102,15 @@ struct ModConfig {
     float free_cam_mouse_sensitivity = 0.12f;
 
     bool enable_paimon_follow = false;
+
+    bool enable_speedhack = false;
+    float game_speed = 1.0f;
+
+    bool enable_render_skip = false;
+    int target_render_fps = 30;
+
+    bool enable_fixed_timestep = false;
+    int fixed_timestep_fps = 222;
 };
 
 namespace Config {

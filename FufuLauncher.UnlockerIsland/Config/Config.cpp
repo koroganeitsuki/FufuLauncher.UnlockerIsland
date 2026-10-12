@@ -217,5 +217,24 @@ namespace Config {
         g_Config.free_cam_mouse_sensitivity = ReadFloat("FreeCamMouseSensitivity", 0.12f, file);
 
         g_Config.enable_paimon_follow = ReadInt("EnablePaimonFollow", 0, file);
+
+        g_Config.enable_speedhack = ReadInt("EnableSpeedHack", 0, file);
+        g_Config.game_speed = ReadFloat("GameSpeed", 1.0f, file);
+
+        g_Config.enable_render_skip = ReadInt("EnableRenderSkip", 0, file);
+        g_Config.target_render_fps = ReadInt("TargetRenderFPS", 30, file);
+        if (g_Config.target_render_fps < 1) {
+            g_Config.target_render_fps = 1;
+        } else if (g_Config.target_render_fps > 1000) {
+            g_Config.target_render_fps = 1000;
+        }
+
+        g_Config.enable_fixed_timestep = ReadInt("EnableFixedTimestep", 0, file);
+        g_Config.fixed_timestep_fps = ReadInt("FixedTimestepFPS", 280, file);
+        if (g_Config.fixed_timestep_fps < 30) {
+            g_Config.fixed_timestep_fps = 30;
+        } else if (g_Config.fixed_timestep_fps > 5000) {
+            g_Config.fixed_timestep_fps = 5000;
+        }
     }
 }

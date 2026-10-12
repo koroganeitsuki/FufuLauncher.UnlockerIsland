@@ -23,6 +23,10 @@ Licensed under the AGPL-3.0 License.
 #include "../Camera/Camera.h"
 #include "../CameraOffset/CameraOffset.h"
 #include "../PaimonFollow/PaimonFollow.h"
+#include "../SpeedHack/SpeedHack.h"
+#include "../RenderSkip/RenderSkip.h"
+#include "../FixedTimestep/FixedTimestep.h"
+#include "../DepenDiag/DepenDiag.h"
 #include <iostream>
 #include <atomic>
 #include <mutex>
@@ -256,17 +260,12 @@ int32_t WINAPI hk_GetFrameCount() {
 }
 
 auto WINAPI hk_GameUpdate(__int64 a1, const char* a2) -> __int64 {
+    DepenDiag::Poll();  // active replacement-value poller (self-throttled to 3s)
     auto orig = (tGameUpdate)o_GameUpdate.load();
     return orig ? orig(a1, a2) : 0;
 }
 
 static bool CheckCanUseShortcut() {
-    auto checkEnter = (tCheckCanEnter)p_CheckCanEnter.load();
-    if (checkEnter) {
-        bool canEnter = false;
-        SafeInvoke([&] { canEnter = checkEnter(); });
-        return canEnter;
-    }
     return true;
 }
 
@@ -404,7 +403,7 @@ int32_t WINAPI hk_ChangeFov(void* __this, float value) {
     if (!g_TouchScreenInit.load() && g_GameUpdateInit.load() && cfg.use_touch_screen) {
         TryInitTouchScreen();
     }
-
+    // static int target_fps = cfg.selected_fps;
     if (cfg.enable_fps_override) {
         auto setFps = (tSetFrameCount)o_SetFrameCount.load();
         if (IsValid(setFps)) SafeInvoke([&]() { setFps(cfg.selected_fps); });
@@ -422,6 +421,7 @@ int32_t WINAPI hk_ChangeFov(void* __this, float value) {
     int32_t ret = orig ? orig(__this, value) : 0;
     bool dialogueOrCutsceneActive = cfg.enable_camera_offset ? IsDialogueOrCutsceneActive() : false;
     Camera::Tick();
+    RenderSkip::Tick();
     bool freeCameraActive = FreeCamera::IsActive();
     if (freeCameraActive) {
         CameraOffset::SuspendImmediately();
@@ -653,6 +653,9 @@ bool Hooks::Init() {
         std::cout << "   -> Rainbow Damage Hooks Ready." << std::endl;
     }
 
+    // 初始化时间控制 (SpeedHack) 模块 - Hook kernel32 的 QPC 和 GetTickCount64
+    SpeedHack::Init();
+
     if (MH_CreateHookApi(L"ws2_32.dll", "send", (void*)hk_send, (void**)&o_send) == MH_OK) {
         std::cout << "[SCAN] Hook send Ready." << '\n';
     }
@@ -664,6 +667,9 @@ bool Hooks::Init() {
     UnderwaterMask::Init();
 
     Camera::Init();
+    RenderSkip::Init();
+    FixedTimestep::Init();
+    DepenDiag::Init();
     CameraOffset::Init();
     FreeCamera::Init();
     PaimonFollow::Init();

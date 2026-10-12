@@ -364,4 +364,8 @@ FodyWeavers.xsd
 
 .idea
 
-.idea
+# Local-only files (IL2CPP dumps & extracted configs)
+*dump.cs
+*Dump.cs
+ConfigAvatar_*.json
+.vscode/

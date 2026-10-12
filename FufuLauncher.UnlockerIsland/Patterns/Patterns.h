@@ -113,6 +113,21 @@ namespace Patterns {
         inline constexpr const char* DamageColor4 = "1309C270";
         inline constexpr const char* UpdateInnerTargetOffset = "6DE13F0";
         inline constexpr const char* SetActiveOffset = "13D8580";
+        inline constexpr const char* CameraSetSkipRenderingOffset = ""; // e.g. "14f1e1a0" for 6.2
+        inline constexpr const char* FireOnPreRenderOffset = ""; // e.g. "14f1e890" for 6.2
+        inline constexpr const char* CameraRenderOffset = ""; // e.g. "14f1e8f0" for 6.2
+        inline constexpr const char* TimeGetDeltaTimeOffset = ""; // TODO: fill with current version offset, e.g. "14f10480" for 6.2
+        inline constexpr const char* RBGetMaxDepenVelOffset = ""; // Rigidbody.get_maxDepenetrationVelocity
+        inline constexpr const char* RBSetMaxDepenVelOffset = ""; // Rigidbody.set_maxDepenetrationVelocity
+        // SkillConfig replacement diagnostics (ctor + getter, A/B = two dump copies)
+        inline constexpr const char* StickCtorAOffset = "";
+        inline constexpr const char* StickGetDepenAOffset = "";
+        inline constexpr const char* AttrCtorAOffset = "";
+        inline constexpr const char* AttrGetOtherDepenAOffset = "";
+        inline constexpr const char* StickCtorBOffset = "";
+        inline constexpr const char* StickGetDepenBOffset = "";
+        inline constexpr const char* AttrCtorBOffset = "";
+        inline constexpr const char* AttrGetOtherDepenBOffset = "";
     }
 
     namespace OS {
@@ -134,6 +149,21 @@ namespace Patterns {
         inline constexpr const char* DamageColor4 = "1307CA40";
         inline constexpr const char* UpdateInnerTargetOffset = "6DDF9E0";
         inline constexpr const char* SetActiveOffset = "13D8580";
+        inline constexpr const char* CameraSetSkipRenderingOffset = "18F98670";
+        inline constexpr const char* FireOnPreRenderOffset = "18F98C60"; // confirmed from 7.0 dump
+        inline constexpr const char* CameraRenderOffset = "18F98CC0"; // confirmed from 7.0 dump
+        inline constexpr const char* TimeGetDeltaTimeOffset = "18F8A5E0"; // confirmed from 7.0 dump
+        inline constexpr const char* RBGetMaxDepenVelOffset = "18FFFE80"; // Rigidbody.get_maxDepenetrationVelocity
+        inline constexpr const char* RBSetMaxDepenVelOffset = "18FFFE90"; // Rigidbody.set_maxDepenetrationVelocity
+        // SkillConfig replacement diagnostics (ctor + getter, A/B = two dump copies)
+        inline constexpr const char* StickCtorAOffset = "F4421A0";        // SkillConfigStick::.ctor (copy A, 7.0)
+        inline constexpr const char* StickGetDepenAOffset = "F442190";    // get_maxDepenetrationVelocityReplacement (A)
+        inline constexpr const char* AttrCtorAOffset = "AE56F90";         // SkillConfigAttraction::.ctor (A)
+        inline constexpr const char* AttrGetOtherDepenAOffset = "AE56F80";// get_otherMaxDepenetrationVelocityReplacement (A)
+        inline constexpr const char* StickCtorBOffset = "DBD7600";        // SkillConfigStick::.ctor (copy B, 7.0)
+        inline constexpr const char* StickGetDepenBOffset = "DBD75F0";    // get_maxDepenetrationVelocityReplacement (B)
+        inline constexpr const char* AttrCtorBOffset = "12FD7220";        // SkillConfigAttraction::.ctor (B)
+        inline constexpr const char* AttrGetOtherDepenBOffset = "12FD7210";// get_otherMaxDepenetrationVelocityReplacement (B)
     }
 
     /*  6.7 old
@@ -226,6 +256,20 @@ namespace Offsets {
     extern std::string DamageColor4Offset;
     extern std::string UpdateInnerTargetOffset;
     extern std::string SetActiveOffset;
+    extern std::string CameraRenderOffset;
+    extern std::string CameraSetSkipRenderingOffset;
+    extern std::string FireOnPreRenderOffset;
+    extern std::string TimeGetDeltaTimeOffset;
+    extern std::string RBGetMaxDepenVelOffset;
+    extern std::string RBSetMaxDepenVelOffset;
+    extern std::string StickCtorAOffset;
+    extern std::string StickGetDepenAOffset;
+    extern std::string AttrCtorAOffset;
+    extern std::string AttrGetOtherDepenAOffset;
+    extern std::string StickCtorBOffset;
+    extern std::string StickGetDepenBOffset;
+    extern std::string AttrCtorBOffset;
+    extern std::string AttrGetOtherDepenBOffset;
 
     void InitOffsets(bool isOS);
 }

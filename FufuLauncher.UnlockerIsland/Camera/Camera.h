@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -13,6 +13,7 @@ namespace Camera {
     void Tick();
     bool IsReady();
     void* GetTransform();
+    void* GetMainCamera();
 
     bool GetPosition(Vector3& outPosition);
     bool GetRotation(Quaternion& outRotation);

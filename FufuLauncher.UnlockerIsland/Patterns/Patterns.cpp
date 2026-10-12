@@ -26,6 +26,20 @@ namespace Offsets {
     std::string DamageColor4Offset;
     std::string UpdateInnerTargetOffset;
     std::string SetActiveOffset;
+    std::string CameraRenderOffset;
+    std::string CameraSetSkipRenderingOffset;
+    std::string FireOnPreRenderOffset;
+    std::string TimeGetDeltaTimeOffset;
+    std::string RBGetMaxDepenVelOffset;
+    std::string RBSetMaxDepenVelOffset;
+    std::string StickCtorAOffset;
+    std::string StickGetDepenAOffset;
+    std::string AttrCtorAOffset;
+    std::string AttrGetOtherDepenAOffset;
+    std::string StickCtorBOffset;
+    std::string StickGetDepenBOffset;
+    std::string AttrCtorBOffset;
+    std::string AttrGetOtherDepenBOffset;
 
     void InitOffsets(bool isOS) {
         if (isOS) {
@@ -47,6 +61,20 @@ namespace Offsets {
             DamageColor4Offset = Patterns::OS::DamageColor4;
             UpdateInnerTargetOffset = Patterns::OS::UpdateInnerTargetOffset;
             SetActiveOffset = Patterns::OS::SetActiveOffset;
+            CameraRenderOffset = Patterns::OS::CameraRenderOffset;
+            CameraSetSkipRenderingOffset = Patterns::OS::CameraSetSkipRenderingOffset;
+            FireOnPreRenderOffset = Patterns::OS::FireOnPreRenderOffset;
+            TimeGetDeltaTimeOffset = Patterns::OS::TimeGetDeltaTimeOffset;
+            RBGetMaxDepenVelOffset = Patterns::OS::RBGetMaxDepenVelOffset;
+            RBSetMaxDepenVelOffset = Patterns::OS::RBSetMaxDepenVelOffset;
+            StickCtorAOffset = Patterns::OS::StickCtorAOffset;
+            StickGetDepenAOffset = Patterns::OS::StickGetDepenAOffset;
+            AttrCtorAOffset = Patterns::OS::AttrCtorAOffset;
+            AttrGetOtherDepenAOffset = Patterns::OS::AttrGetOtherDepenAOffset;
+            StickCtorBOffset = Patterns::OS::StickCtorBOffset;
+            StickGetDepenBOffset = Patterns::OS::StickGetDepenBOffset;
+            AttrCtorBOffset = Patterns::OS::AttrCtorBOffset;
+            AttrGetOtherDepenBOffset = Patterns::OS::AttrGetOtherDepenBOffset;
             std::cout << "[INFO] Pre-initialized Global (OS) Offsets from hardcode" << std::endl;
         } else {
             GetActiveOffset = Patterns::CN::GetActiveOffset;
@@ -67,6 +95,20 @@ namespace Offsets {
             DamageColor4Offset = Patterns::CN::DamageColor4;
             UpdateInnerTargetOffset = Patterns::CN::UpdateInnerTargetOffset;
             SetActiveOffset = Patterns::CN::SetActiveOffset;
+            CameraRenderOffset = Patterns::CN::CameraRenderOffset;
+            CameraSetSkipRenderingOffset = Patterns::CN::CameraSetSkipRenderingOffset;
+            FireOnPreRenderOffset = Patterns::CN::FireOnPreRenderOffset;
+            TimeGetDeltaTimeOffset = Patterns::CN::TimeGetDeltaTimeOffset;
+            RBGetMaxDepenVelOffset = Patterns::CN::RBGetMaxDepenVelOffset;
+            RBSetMaxDepenVelOffset = Patterns::CN::RBSetMaxDepenVelOffset;
+            StickCtorAOffset = Patterns::CN::StickCtorAOffset;
+            StickGetDepenAOffset = Patterns::CN::StickGetDepenAOffset;
+            AttrCtorAOffset = Patterns::CN::AttrCtorAOffset;
+            AttrGetOtherDepenAOffset = Patterns::CN::AttrGetOtherDepenAOffset;
+            StickCtorBOffset = Patterns::CN::StickCtorBOffset;
+            StickGetDepenBOffset = Patterns::CN::StickGetDepenBOffset;
+            AttrCtorBOffset = Patterns::CN::AttrCtorBOffset;
+            AttrGetOtherDepenBOffset = Patterns::CN::AttrGetOtherDepenBOffset;
             std::cout << "[INFO] Pre-initialized China (CN) Offsets from hardcode" << std::endl;
         }
     }

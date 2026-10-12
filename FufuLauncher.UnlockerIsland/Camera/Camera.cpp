@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -117,6 +117,11 @@ namespace Camera {
 
     void* GetTransform() {
         return g_Transform;
+    }
+
+    void* GetMainCamera() {
+        if (!g_Ready.load(std::memory_order_relaxed)) return nullptr;
+        return SafeGetMain();
     }
 
     bool GetPosition(Vector3& outPosition) {

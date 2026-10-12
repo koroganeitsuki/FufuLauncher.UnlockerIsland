@@ -1,4 +1,4 @@
-﻿/*
+﻿﻿/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -47,6 +47,20 @@ unsigned char originalCheckCanOpenMapBytes[5] = {0};
 ID3D11DeviceContext* g_pd3dContext = nullptr;
 ID3D11RenderTargetView* g_mainRenderTargetView = nullptr;
 HWND g_hGameWindow_ImGui = nullptr;
+tQueryPerformanceCounter o_QueryPerformanceCounter = nullptr;
+tGetTickCount64 o_GetTickCount64 = nullptr;
+tFireOnPreRender o_FireOnPreRender = nullptr;
+tTimeGetDeltaTime o_TimeGetDeltaTime = nullptr;
+tRBGetMaxDepenVel o_RBGetMaxDepenVel = nullptr;
+tRBSetMaxDepenVel o_RBSetMaxDepenVel = nullptr;
+tSkillCtor o_SkillStickCtorA = nullptr;
+tSkillCtor o_SkillStickCtorB = nullptr;
+tSkillCtor o_SkillAttrCtorA = nullptr;
+tSkillCtor o_SkillAttrCtorB = nullptr;
+tStickGetDepen o_SkillStickGetDepenA = nullptr;
+tStickGetDepen o_SkillStickGetDepenB = nullptr;
+tAttrGetOtherDepen o_SkillAttrGetOtherDepenA = nullptr;
+tAttrGetOtherDepen o_SkillAttrGetOtherDepenB = nullptr;
 tResizeBuffers o_ResizeBuffers = nullptr;
 tPresent1 o_Present1 = nullptr;
 

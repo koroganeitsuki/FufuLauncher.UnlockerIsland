@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -62,6 +62,14 @@ typedef void (__fastcall *tClockPageBack)(void*, void*);
 
 typedef __int64 (__fastcall *tUpdateInnerTarget)(void*, void*, double);
 
+typedef void (__fastcall* tFireOnPreRender)(void* cam);
+typedef float (__fastcall* tTimeGetDeltaTime)();
+typedef float (__fastcall* tRBGetMaxDepenVel)(void* rb);
+typedef void (__fastcall* tRBSetMaxDepenVel)(void* rb, float value);
+typedef void (__fastcall* tSkillCtor)(void* thisPtr);
+typedef float (__fastcall* tStickGetDepen)(void* thisPtr);
+typedef float (__fastcall* tAttrGetOtherDepen)(void* thisPtr);
+
 extern std::atomic<void*> o_GetFrameCount;
 extern std::atomic<void*> o_SetFrameCount;
 extern std::atomic<void*> o_ChangeFov;
@@ -105,6 +113,20 @@ extern unsigned char originalCheckCanOpenMapBytes[5];
 extern ID3D11DeviceContext* g_pd3dContext;
 extern ID3D11RenderTargetView* g_mainRenderTargetView;
 extern HWND g_hGameWindow_ImGui;
+extern tQueryPerformanceCounter o_QueryPerformanceCounter;
+extern tGetTickCount64 o_GetTickCount64;
+extern tFireOnPreRender o_FireOnPreRender;
+extern tTimeGetDeltaTime o_TimeGetDeltaTime;
+extern tRBGetMaxDepenVel o_RBGetMaxDepenVel;
+extern tRBSetMaxDepenVel o_RBSetMaxDepenVel;
+extern tSkillCtor o_SkillStickCtorA;
+extern tSkillCtor o_SkillStickCtorB;
+extern tSkillCtor o_SkillAttrCtorA;
+extern tSkillCtor o_SkillAttrCtorB;
+extern tStickGetDepen o_SkillStickGetDepenA;
+extern tStickGetDepen o_SkillStickGetDepenB;
+extern tAttrGetOtherDepen o_SkillAttrGetOtherDepenA;
+extern tAttrGetOtherDepen o_SkillAttrGetOtherDepenB;
 extern tResizeBuffers o_ResizeBuffers;
 extern tPresent1 o_Present1;
 
