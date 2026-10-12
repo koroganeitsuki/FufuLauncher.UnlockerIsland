@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -950,6 +950,9 @@ bool Hooks::Init()
     }
 
     UnderwaterMask::Init();
+
+    // 初始化时间控制 (SpeedHack) 模块 - Hook kernel32 的 QPC 和 GetTickCount64
+    SpeedHack::Init();
 
     Camera::Init();
     CameraOffset::Init();

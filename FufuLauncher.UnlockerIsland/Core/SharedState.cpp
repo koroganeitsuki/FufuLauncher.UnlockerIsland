@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -43,6 +43,9 @@ std::atomic<bool> g_RequestCraft{false};
 std::atomic<bool> g_TouchScreenInit{false};
 
 unsigned char originalCheckCanOpenMapBytes[5] = {0};
+
+tQueryPerformanceCounter o_QueryPerformanceCounter = nullptr;
+tGetTickCount64 o_GetTickCount64 = nullptr;
 
 std::list<std::wstring> GrassPrefix{
     L"Area_Ndkl_",

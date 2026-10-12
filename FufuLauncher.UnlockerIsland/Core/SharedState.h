@@ -55,6 +55,9 @@ typedef void (__fastcall *tClockPageBack)(void*, void*);
 
 typedef __int64 (__fastcall *tUpdateInnerTarget)(void*, void*, double);
 
+extern tQueryPerformanceCounter o_QueryPerformanceCounter;
+extern tGetTickCount64 o_GetTickCount64;
+
 extern std::atomic<void*> o_GetFrameCount;
 extern std::atomic<void*> o_SetFrameCount;
 extern std::atomic<void*> o_ChangeFov;

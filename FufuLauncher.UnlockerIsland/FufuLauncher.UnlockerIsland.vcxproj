@@ -184,6 +184,7 @@
         <ClCompile Include="CameraDistance\CameraDistance.cpp"/>
         <ClCompile Include="CameraCollision\CameraCollision.cpp"/>
         <ClCompile Include="PaimonFollow\PaimonFollow.cpp"/>
+        <ClCompile Include="SpeedHack\SpeedHack.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="MinHook\libMinHook.x64.lib"/>

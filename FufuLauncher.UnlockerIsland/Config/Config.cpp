@@ -1,4 +1,4 @@
-﻿/*
+/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -263,5 +263,8 @@ namespace Config
         g_Config.free_cam_mouse_sensitivity = ReadFloat("FreeCamMouseSensitivity", 0.12f, file);
 
         g_Config.enable_paimon_follow = ReadInt("EnablePaimonFollow", 0, file);
+
+        g_Config.enable_speedhack = ReadInt("EnableSpeedHack", 0, file);
+        g_Config.game_speed = ReadFloat("GameSpeed", 1.0f, file);
     }
 }
