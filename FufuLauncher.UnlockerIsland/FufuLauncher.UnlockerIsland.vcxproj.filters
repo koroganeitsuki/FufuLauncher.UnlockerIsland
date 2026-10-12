@@ -143,7 +143,13 @@
     <ClInclude Include="SpeedHack\SpeedHack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FrameLimiter\FrameLimiter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClCompile Include="SpeedHack\SpeedHack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameLimiter\FrameLimiter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

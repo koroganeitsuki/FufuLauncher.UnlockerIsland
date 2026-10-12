@@ -112,6 +112,9 @@ struct ModConfig
 
     bool enable_speedhack = false;
     float game_speed = 1.0f;
+
+    bool enable_frame_limiter = false;
+    float target_frame_interval_ms = 2.49f;
 };
 
 namespace Config

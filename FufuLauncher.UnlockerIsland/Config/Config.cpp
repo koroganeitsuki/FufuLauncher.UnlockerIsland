@@ -266,5 +266,8 @@ namespace Config
 
         g_Config.enable_speedhack = ReadInt("EnableSpeedHack", 0, file);
         g_Config.game_speed = ReadFloat("GameSpeed", 1.0f, file);
+
+        g_Config.enable_frame_limiter = ReadInt("EnableFrameLimiter", 0, file);
+        g_Config.target_frame_interval_ms = ReadFloat("TargetFrameIntervalMs", 2.49f, file);
     }
 }

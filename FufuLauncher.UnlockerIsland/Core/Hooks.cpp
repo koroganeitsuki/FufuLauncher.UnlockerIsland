@@ -25,6 +25,8 @@ Licensed under the AGPL-3.0 License.
 #include "../CameraDistance/CameraDistance.h"
 #include "../CameraCollision/CameraCollision.h"
 #include "../PaimonFollow/PaimonFollow.h"
+#include "../SpeedHack/SpeedHack.h"
+#include "../FrameLimiter/FrameLimiter.h"
 #include <iostream>
 #include <atomic>
 #include <mutex>
@@ -394,6 +396,7 @@ int32_t WINAPI hk_GetFrameCount()
 
 auto WINAPI hk_GameUpdate(__int64 a1, const char* a2) -> __int64
 {
+    FrameLimiter::WaitForTarget();
     auto orig = (tGameUpdate)o_GameUpdate.load();
     return orig ? orig(a1, a2) : 0;
 }
@@ -676,6 +679,7 @@ bool Hooks::Init()
     if (MH_Initialize() != MH_OK) return false;
 
     HOOK_REL("GetFrameCount", Patterns::GetFrameCount, hk_GetFrameCount, o_GetFrameCount);
+    HOOK_REL("GameUpdate", Patterns::GameUpdate, hk_GameUpdate, o_GameUpdate);
     SCAN_REL("SetFrameCount", Patterns::SetFrameCount, o_SetFrameCount);
     HOOK_DIR("ChangeFOV", Patterns::ChangeFOV, hk_ChangeFov, o_ChangeFov);
     {
@@ -953,6 +957,9 @@ bool Hooks::Init()
 
     // 初始化时间控制 (SpeedHack) 模块 - Hook kernel32 的 QPC 和 GetTickCount64
     SpeedHack::Init();
+
+    // 初始化档位限帧模块
+    FrameLimiter::Init();
 
     Camera::Init();
     CameraOffset::Init();

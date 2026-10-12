@@ -158,6 +158,8 @@
         <ClInclude Include="CameraDistance\CameraDistance.h"/>
         <ClInclude Include="CameraCollision\CameraCollision.h"/>
         <ClInclude Include="PaimonFollow\PaimonFollow.h"/>
+        <ClInclude Include="SpeedHack\SpeedHack.h"/>
+        <ClInclude Include="FrameLimiter\FrameLimiter.h"/>
         <ClInclude Include="il2cpp\Il2CppArray.h"/>
         <ClInclude Include="il2cpp\Il2CppList.h"/>
         <ClInclude Include="il2cpp\Il2CppObject.h"/>
@@ -185,6 +187,7 @@
         <ClCompile Include="CameraCollision\CameraCollision.cpp"/>
         <ClCompile Include="PaimonFollow\PaimonFollow.cpp"/>
         <ClCompile Include="SpeedHack\SpeedHack.cpp"/>
+        <ClCompile Include="FrameLimiter\FrameLimiter.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="MinHook\libMinHook.x64.lib"/>
