@@ -35,32 +35,34 @@ namespace FrameLimiter
             return;
         }
 
-        // 把 ms 目标间隔换成 ticks
+        // 把 ms 换成 ticks
         double intervalMs = cfg.target_frame_interval_ms;
         LONGLONG intervalTicks = (LONGLONG)(intervalMs * (double)s_QPF.QuadPart / 1000.0);
+        LONGLONG oneMsTicks   = s_QPF.QuadPart / 1000;
 
-        LONGLONG elapsed = nowQpc.QuadPart - s_LastEnter;
+        // 档位目标：从上次进入时间 + interval 开始
+        // 如果已经超时，就每次往后挪 1ms，直到 target >= now
+        // 即：2.49 → 3.49 → 4.49 → … 永远等到下一个档位边界
+        LONGLONG target = s_LastEnter + intervalTicks;
+        while (target < nowQpc.QuadPart)
+            target += oneMsTicks;
 
-        if (elapsed < intervalTicks)
+        // 等到 target
+        LONGLONG remaining = target - nowQpc.QuadPart;
+        if (remaining > 0)
         {
-            // 档位逻辑：当前帧耗时 < interval → 补等到 interval
-            LONGLONG remaining = intervalTicks - elapsed;
-
-            // Sleep 部分：先睡掉大部分剩余时间（系统定时器精度 ≈ 15.6ms
-            // 但 Sleep(1) 在 Win10+ 使用 NtDelayExecution 可以做到 ~1ms 精度）
             LONGLONG sleepMs = (LONGLONG)((double)remaining * 1000.0 / (double)s_QPF.QuadPart);
             if (sleepMs > 1) Sleep((DWORD)(sleepMs - 1));
 
-            // 自旋部分：精确等到 interval 到达（避免 Sleep 超时）
             while (true)
             {
                 LARGE_INTEGER spinQpc{};
                 QueryPerformanceCounter(&spinQpc);
-                if (spinQpc.QuadPart - s_LastEnter >= intervalTicks) break;
+                if (spinQpc.QuadPart >= target) break;
             }
         }
-        // elapsed >= intervalTicks → 上一帧已经超时，直接放行（档位自然后移）
 
-        s_LastEnter = nowQpc.QuadPart;
+        // 基准设为档位边界，保持档位连续性
+        s_LastEnter = target;
     }
 }
