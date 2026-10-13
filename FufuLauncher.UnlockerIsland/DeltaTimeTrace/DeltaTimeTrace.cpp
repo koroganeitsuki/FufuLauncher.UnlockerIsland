@@ -16,9 +16,9 @@ DeltaTimeTrace: hook Time.get_deltaTime, 记录每个调用点的 RVA + 特征�
 #include <string>
 #include <iostream>
 
-// 7.0 OS: Time.get_deltaTime static → RVA 0x18F8A5E0
-// 7.1 用户自行更新
-static constexpr uintptr_t kDeltaTimeRVA_7_0_OS = 0x18F8A5E0;
+// 7.1 OS: Time.get_deltaTime static → RVA 0x19BE86F0
+// 7.0 OS: 0x18F8A5E0
+static constexpr uintptr_t kDeltaTimeRVA = 0x19BE86F0;
 
 typedef float (__fastcall* tTimeGetDeltaTime)(void* methodInfo);
 static tTimeGetDeltaTime o_TimeGetDeltaTime = nullptr;
@@ -130,10 +130,10 @@ namespace DeltaTimeTrace
     void Init()
     {
         s_gameBase = (uintptr_t)GetModuleHandle(nullptr);
-        uintptr_t addr = s_gameBase + kDeltaTimeRVA_7_0_OS;
+        uintptr_t addr = s_gameBase + kDeltaTimeRVA;
 
         std::cout << "[DT] Time.get_deltaTime @ 0x" << std::hex << addr
-                  << " (RVA 0x" << kDeltaTimeRVA_7_0_OS << ")" << std::dec << std::endl;
+                  << " (RVA 0x" << kDeltaTimeRVA << ")" << std::dec << std::endl;
 
         if (MH_CreateHook((void*)addr, (void*)hk_TimeGetDeltaTime,
                           (void**)&o_TimeGetDeltaTime) == MH_OK)
