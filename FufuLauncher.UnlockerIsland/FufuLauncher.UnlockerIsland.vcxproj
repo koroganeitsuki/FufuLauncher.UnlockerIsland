@@ -188,6 +188,7 @@
         <ClCompile Include="PaimonFollow\PaimonFollow.cpp"/>
         <ClCompile Include="SpeedHack\SpeedHack.cpp"/>
         <ClCompile Include="FrameLimiter\FrameLimiter.cpp"/>
+        <ClCompile Include="DeltaTimeTrace\DeltaTimeTrace.cpp"/>
     </ItemGroup>
     <ItemGroup>
         <Content Include="MinHook\libMinHook.x64.lib"/>

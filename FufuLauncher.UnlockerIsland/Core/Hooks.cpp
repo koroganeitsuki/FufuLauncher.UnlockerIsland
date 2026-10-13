@@ -961,6 +961,9 @@ bool Hooks::Init()
     // 初始化档位限帧模块
     FrameLimiter::Init();
 
+    // 初始化 deltaTime 调用追踪诊断（输出 RVA + 特征码到文件）
+    DeltaTimeTrace::Init();
+
     Camera::Init();
     CameraOffset::Init();
     FreeCamera::Init();
