@@ -1,4 +1,4 @@
-/*
+﻿/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 */
@@ -27,6 +27,7 @@ Licensed under the AGPL-3.0 License.
 #include "../PaimonFollow/PaimonFollow.h"
 #include "../SpeedHack/SpeedHack.h"
 #include "../FrameLimiter/FrameLimiter.h"
+#include "../DeltaTimeTrace/DeltaTimeTrace.h"
 #include <iostream>
 #include <atomic>
 #include <mutex>

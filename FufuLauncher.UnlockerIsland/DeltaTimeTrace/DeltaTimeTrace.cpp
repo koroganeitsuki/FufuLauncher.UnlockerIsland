@@ -1,4 +1,4 @@
-/*
+﻿/*
 Copyright (c) FufuLauncher Dev Team. All rights reserved.
 Licensed under the AGPL-3.0 License.
 
@@ -8,7 +8,7 @@ DeltaTimeTrace: hook Time.get_deltaTime, 记录每个调用点的 RVA + 特征�
 #include "DeltaTimeTrace.h"
 #include "../Config/Config.h"
 #include <Windows.h>
-#include <MinHook.h>
+#include "../MinHook/MinHook.h"
 #include <intrin.h>
 #include <fstream>
 #include <mutex>
